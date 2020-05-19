@@ -1,18 +1,10 @@
 const app = require("express")();
 app.use(express.static(__dirname));
-app.set("port", process.env.PORT || 3000);
-const server = app.listen(app.get("port"), () => {
-	console.log("listening on port ", server.address().port);
+const port = process.env.PORT || 3000;
+const server = app.listen(port, () => {
+  console.log(`Server listening on port: ${port}`);
 });
 const io = require("socket.io")(server);
-
-app.get("./", (req, res) => {
-	res.sendFile(`${__dirname}/index.html`);
-});
-
-app.get("./style.css", (req, res) => {
-	res.sendFile(`${__dirname}/style.css`);
-});
 
 io.on("connection", (socket) => {
 	console.log("a user connected");
