@@ -6,11 +6,11 @@ const server = app.listen(app.get("port"), () => {
 });
 const io = require("socket.io")(server);
 
-app.get("/", (req, res) => {
+app.get("./", (req, res) => {
 	res.sendFile(`${__dirname}/index.html`);
 });
 
-app.get("/style.css", (req, res) => {
+app.get("./style.css", (req, res) => {
 	res.sendFile(`${__dirname}/style.css`);
 });
 
