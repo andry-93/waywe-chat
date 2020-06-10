@@ -10,6 +10,7 @@
     "express": "^4.15.2",
     "socket.io": "^2.3.0",
 	"helmet": "^3.22.0",
-	"date-format-lite": "^17.7.0"
+	"date-format-lite": "^17.7.0",
+	"xss-filters": "^1.2.7"
   }
 }
