@@ -1,38 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>WayWe chat</title>
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-<h1>WayWe Admin</h1>
-<ul id="messages"></ul>
-<form action="">
-    <input id="m" autocomplete="off" placeholder="Messange..." /><button>Send</button>
-</form>
+	<title></title>
+	<!-- Webix Library -->
+	<script type="text/javascript" src="lib/webix_7.3.2/webix.js"></script>
+	<link rel="stylesheet" type="text/css" href="lib/webix_7.3.2/webix.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
-<script>
-    (function () {
-        const socket = io();
-        document.forms[0].addEventListener("submit", function(e){
-            e.preventDefault();
-            const img = "https://s3-alpha-sig.figma.com/img/d0f0/b069/b9e62942d11abb885a8c438ef28b49cf?Expires=1590364800&Signature=Kuhob6La2msBL~RypK3YulPus4HjHas0mHlEAQl1QCH8BUJNPzmzL5NgK7qfIYf1E5DQ0V4OW-pfO3xK8kO-R4n3SzCwA0UuV5a-6AVNsF9~prrw8nKCTh8sWWUx5tCnSmRU68nEZ~vYVcqMpcwJwKPA580CgD4ncauEiwSZvLv~1QKzbSbsdnoMfexqYOPESXyZB0GNeoj9UsMmfP1ekG33VylKhOLMlTOACQnaraAWeqGPHy6u6BS6zaxFHYEdHX0qbofkuacXATqLfhiQvrWLtFl3YV8rkuq8GFwRsKdq5y8ZtU80aQCrZn6ubZuriA5T92FI9Lxb6zCdzkm2QQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA";
-            socket.emit('chat message', {user: 'admin', msg: document.getElementById('m').value, img: img});
-            document.getElementById("m").value = '';
-            return false;
-        })
-        socket.on('chat message', function(msg){
-            const messages = document.getElementById('messages');
-            const list = document.createElement('li')
-            list.innerHTML = `${msg.user}: ${msg.msg}`;
-            messages.append(list);
-        });
-    })();
-</script>
-</body>
+	<!-- Kanban -->
+	<script src="lib/kanban/kanban.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="lib/kanban/kanban.css">
+
+	<!-- Filemanager -->
+	<script type="text/javascript" src="lib/filemanager_7.3.2/filemanager.js"></script>
+	<link rel="stylesheet" type="text/css" href="lib/filemanager_7.3.2/filemanager.css"/>
+
+	<!-- Font Awesome 5 Library -->
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" type="text/css" media="screen" charset="utf-8">
+
+	<!-- App -->
+	<script type="text/javascript" src="codebase/myapp.js"></script>
+
+	<!--Scheduler-->
+	<script src="https://cdn.webix.com/components/edge/scheduler/scheduler.js"></script>
+
+	<script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+	<link rel="stylesheet" href="https://assets.tokbox.com/solutions/css/style.css">
+
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="codebase/myapp.css">
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+	
+</head>
+<body></body>
 </html>
