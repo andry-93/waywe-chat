@@ -2,7 +2,7 @@
   "name": "WayWeMessanger",
   "version": "0.0.1",
   "description": "Chat for real-time messaging",
-  "main": "server/server.js",
+  "main": "server.js",
   "author": "",
   "license": "ISC",
   "dependencies": {

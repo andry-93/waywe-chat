@@ -14,13 +14,13 @@ const helmet = require("helmet");
 
 const router = express.Router();
 
-const schedulerRouter = require("../scheduler/router");
+const schedulerRouter = require("./scheduler/router");
 
 // add listeners to basic CRUD requests
-const Storage = require("../scheduler/storage");
+const Storage = require("./scheduler/storage");
 
 // add listeners to basic CRUD with recurring events support
-const RecurringStorage = require("../scheduler/storage_recurring");
+const RecurringStorage = require("./scheduler/storage_recurring");
 
 // we'll use mysql for db access and util to promisify queries
 const util = require("util");
