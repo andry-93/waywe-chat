@@ -14,7 +14,7 @@ const helmet = require("helmet");
 
 const router = express.Router();
 
-const schedulerRouter = require("scheduler/router");
+const schedulerRouter = require("./scheduler/router");
 
 // add listeners to basic CRUD requests
 const Storage = require("./scheduler/storage");
