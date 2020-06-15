@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
-app.use(express.static(__dirname));
+// app.use(express.static(__dirname));
 
 const server = app.listen(port, () => {
 	console.log(`Server listening on port: ${port}`);
@@ -14,10 +14,14 @@ const helmet = require("helmet");
 
 const router = express.Router();
 
-const schedulerRouter = require("./scheduler/router");
+const schedulerRouter = require("scheduler/router");
 
 // add listeners to basic CRUD requests
 const Storage = require("./scheduler/storage");
+const kanbanRouter = require("./kanban/router");
+
+// add listeners to basic CRUD requests - scheduler
+const KanbanStorage = require("./kanban/storage");
 
 // add listeners to basic CRUD with recurring events support
 const RecurringStorage = require("./scheduler/storage_recurring");
@@ -56,11 +60,18 @@ app.use((req, res, next) => {
 const connectionPool = mysql.createPool(mysqlConfig);
 connectionPool.query = util.promisify(connectionPool.query);
 
+
+// scheduler
 const eventsStorage = new Storage(connectionPool);
 schedulerRouter.setRoutes(app, "/server/events", eventsStorage);
 
+// scheduler
 const recurringEventsStorage = new RecurringStorage(connectionPool);
 schedulerRouter.setRoutes(app, "/server/recurring_events", recurringEventsStorage);
+
+// kanban
+const kanbanStorage = new KanbanStorage(connectionPool);
+kanbanRouter.setRoutes(app, "/server", kanbanStorage);
 
 io.on("connection", (socket) => {
 	console.log("a user connected");
